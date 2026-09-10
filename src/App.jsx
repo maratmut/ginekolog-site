@@ -11,7 +11,6 @@ import {
   Play,
   Send,
   ShieldCheck,
-  Sparkles,
   X,
 } from 'lucide-react'
 
@@ -332,63 +331,51 @@ export default function App() {
       <motion.div className="scroll-progress" style={{ scaleX }} />
       <Header />
       <main id="top">
-        <section className="hero" id="about">
-          <div className="hero-copy">
-            <motion.p className="eyebrow hero-kicker" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.15 }}>Гинекологическая хирургия · 18+ лет практики</motion.p>
-            <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
-              Возвращая<br /><em>уверенность</em><br />в своём теле
-            </motion.h1>
-            <motion.p className="hero-lead" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
-              Комплексный подход к здоровью тазового дна и интимной зоны — от точной диагностики до восстановления.
-            </motion.p>
-            <motion.div className="hero-actions" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}>
-              <a className="button" href="#booking">Записаться на консультацию<ArrowRight /></a>
-              <a className="quiet-link" href="#services">Узнать о направлениях<ArrowDown /></a>
-            </motion.div>
-            <motion.div className="doctor-line" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.55 }}>
-              <span className="doctor-monogram">НР</span>
-              <p><strong>Рамазанова Наида Рамазановна</strong><span>Врач высшей категории</span></p>
-            </motion.div>
-          </div>
-          <motion.div className="hero-visual" initial={{ opacity: 0, scale: 1.04 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}>
-            <img src="/assets/hero-calla.webp" alt="Калла — символ деликатности и точности" fetchPriority="high" />
-            <div className="hero-stamp"><span>18</span><p>лет<br />непрерывной<br />практики</p></div>
-            <p className="image-note">Диагностика · хирургия · восстановление</p>
+        <section className="hero" id="about" aria-labelledby="hero-title">
+          <motion.div
+            className="hero-copy"
+            initial={{ opacity: 0, y: 24, filter: 'blur(8px)' }}
+            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="hero-copy-inner">
+              <h1 id="hero-title">Рамазанова Наида Рамазановна</h1>
+
+              <div className="hero-roles">
+                <p>Врач — гинеколог-хирург, врач высшей категории</p>
+                <p>Руководитель Центра реконструктивной и эстетической тазовой хирургии</p>
+                <p>Непрерывный стаж работы — более 18 лет.</p>
+              </div>
+
+              <div className="hero-mobile-portrait">
+                <img src="/assets/doctor-portrait-placeholder.png" alt="Временный сгенерированный портрет врача" />
+                <p>Временное изображение — заменить оригиналом</p>
+              </div>
+
+              <p className="hero-experience">
+                За годы непрерывной практики Наида Рамазановна регулярно повышала квалификацию и проходила профессиональное обучение в ведущих медицинских центрах Москвы, Санкт-Петербурга и Стамбула.
+              </p>
+
+              <div className="hero-positioning">
+                <h2>Комплексный подход к решению проблем тазового дна и интимной зоны.</h2>
+                <p>Диагностика, реконструктивная и эстетическая хирургия, а также современные методы неоперационной эстетической гинекологии — с индивидуальным подбором тактики лечения для каждой пациентки.</p>
+              </div>
+
+              <div className="hero-bottom">
+                <div className="hero-stats" aria-label="Ключевые цифры">
+                  <div><strong>18+</strong><span>лет непрерывной врачебной практики</span></div>
+                  <div><strong>10 000+</strong><span>пациенток</span></div>
+                </div>
+                <div className="hero-actions">
+                  <a className="button" href="#booking">Записаться<ArrowRight /></a>
+                  <a className="quiet-link" href="#services">Направления работы<ArrowDown /></a>
+                </div>
+              </div>
+            </div>
           </motion.div>
-        </section>
-
-        <section className="credentials section-shell">
-          <Reveal className="credentials-grid">
-            <div className="credential-intro">
-              <p className="eyebrow">О враче</p>
-              <h2>Опыт, который помогает видеть ситуацию <em>целиком</em></h2>
-            </div>
-            <div className="doctor-bio">
-              <p className="large-copy">Врач — гинеколог-хирург, руководитель Центра реконструктивной и эстетической тазовой хирургии.</p>
-              <p>Наида Рамазановна регулярно повышает квалификацию и проходила профессиональное обучение в ведущих медицинских центрах Москвы, Санкт-Петербурга и Стамбула.</p>
-              <div className="stats">
-                <div><strong>18+</strong><span>лет непрерывной врачебной практики</span></div>
-                <div><strong>10 000+</strong><span>пациенток</span></div>
-              </div>
-            </div>
-          </Reveal>
-        </section>
-
-        <section className="philosophy">
-          <div className="section-shell philosophy-grid">
-            <Reveal className="philosophy-title">
-              <p className="eyebrow light">Принцип работы</p>
-              <h2>Не выбирать между здоровьем и эстетикой.</h2>
-            </Reveal>
-            <Reveal className="philosophy-copy" delay={0.1}>
-              <p>Диагностика, реконструктивная и эстетическая хирургия, современные неоперационные методы — с индивидуальным подбором тактики для каждой пациентки.</p>
-              <div className="principles">
-                <span><ShieldCheck /> Конфиденциально</span>
-                <span><Sparkles /> Индивидуально</span>
-                <span><CircleCheck /> По показаниям</span>
-              </div>
-            </Reveal>
-          </div>
+          <motion.div className="hero-visual" initial={{ opacity: 0, scale: 1.04 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}>
+            <img src="/assets/doctor-portrait-placeholder.png" alt="Временный сгенерированный портрет врача" fetchPriority="high" />
+          </motion.div>
         </section>
 
         <section className="services section-shell" id="services">
