@@ -159,7 +159,7 @@ function Header() {
   return (
     <header className="site-header">
       <a className="brand" href="#top" aria-label="На главную">
-        <span className="brand-mark">NR</span>
+        <span className="brand-mark"><img src="/assets/logo-nr-gpt-image-2-5.webp" alt="" /></span>
         <span className="brand-name">Наида Рамазанова</span>
       </a>
       <nav className="desktop-nav" aria-label="Основная навигация">
@@ -454,7 +454,7 @@ export default function App() {
       </main>
       <footer className="footer">
         <div className="section-shell footer-inner">
-          <a className="brand" href="#top"><span className="brand-mark">NR</span><span className="brand-name">Наида Рамазанова</span></a>
+          <a className="brand" href="#top"><span className="brand-mark"><img src="/assets/logo-nr-gpt-image-2-5.webp" alt="" /></span><span className="brand-name">Наида Рамазанова</span></a>
           <p>Информация на сайте не является медицинской консультацией. Имеются противопоказания — необходима консультация специалиста.</p>
           <a href="#top" className="to-top">Наверх<ArrowDown /></a>
         </div>
