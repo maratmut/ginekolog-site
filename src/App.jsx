@@ -20,77 +20,147 @@ const CONTACTS = {
   instagram: '#booking',
 }
 
-const services = [
+const serviceGroups = [
   {
-    label: 'Первичный шаг',
-    title: 'Консультация гинеколога-хирурга',
-    text: 'Индивидуальная консультация для оценки состояния органов малого таза, тазового дна и интимной зоны.',
-    details: [
-      ['Бережный диалог', 'Обсудим симптомы, ожидания и вопросы без неловкости и спешки.'],
-      ['Персональная тактика', 'После осмотра врач предложит подходящий маршрут диагностики и лечения.'],
+    id: 'consultation',
+    title: 'Консультация',
+    services: [
+      {
+        title: 'Консультация гинеколога-хирурга',
+        text: 'Индивидуальная консультация для оценки состояния органов малого таза, тазового дна и интимной зоны.',
+        action: 'Записаться на консультацию',
+        icon: '/assets/icon-consultation.webp',
+      },
     ],
-    action: 'Записаться на консультацию',
-    icon: '/assets/icon-consultation.webp',
   },
   {
-    label: 'Реконструктивная хирургия',
-    title: 'Реконструкция тазового дна',
-    text: 'Субфасциальная техника для восстановления анатомии и функции тазового дна.',
-    details: [
-      ['Когда может применяться', 'При опущении органов малого таза, нарушении их поддержки, некоторых формах недержания мочи и последствиях родов.'],
-      ['Цель операции', 'Восстановить поддержку тазовых органов с учётом анатомии и индивидуальных показаний.'],
+    id: 'operations',
+    title: 'Операции',
+    services: [
+      {
+        title: 'Реконструкция тазового дна субфасциальной техникой',
+        text: 'Реконструктивная операция, направленная на восстановление анатомии и функции тазового дна.',
+        detailsTitle: 'Может применяться при:',
+        details: [
+          'опущении и выпадении органов малого таза;',
+          'нарушении поддержки тазовых органов;',
+          'некоторых формах недержания мочи;',
+          'последствиях родов и других повреждений тканей тазового дна.',
+        ],
+        action: 'Записаться на операцию',
+        icon: '/assets/icon-reconstruction.webp',
+      },
+      {
+        title: 'Хирургическая эстетика вульвы',
+        text: 'Хирургическая коррекция интимной зоны с учётом анатомических особенностей и пожеланий пациентки.',
+        detailsTitle: 'Включает:',
+        details: [
+          {
+            title: 'Лабиопластика',
+            text: 'Коррекция формы и размера малых половых губ. В том числе наиболее востребованная форма — «крылья бабочки».',
+          },
+          {
+            title: 'Клиторальная пластика',
+            text: 'Коррекция области капюшона клитора по показаниям и эстетическим запросам пациентки.',
+          },
+          {
+            title: 'Пластика больших половых губ',
+            text: 'Коррекция формы и объёма больших половых губ.',
+          },
+        ],
+        action: 'Записаться на операцию',
+        icon: '/assets/icon-aesthetics.webp',
+      },
+      {
+        title: 'Комплекс «Жена миллионера»',
+        text: 'Комплексная операция для пациенток, которые хотят одновременно решить функциональные и эстетические задачи интимной зоны.',
+        detailsTitle: 'В зависимости от индивидуальных показаний комплекс может включать:',
+        details: [
+          'реконструкцию тазового дна;',
+          'коррекцию цистоцеле и ректоцеле;',
+          'пластику малых и больших половых губ;',
+          'коррекцию капюшона клитора;',
+          'комплексную эстетическую коррекцию вульвы.',
+        ],
+        action: 'Записаться на операцию',
+        icon: '/assets/icon-reconstruction.webp',
+      },
+      {
+        title: 'Гинекологические операции лапароскопическим доступом',
+        text: 'Минимально инвазивный хирургический доступ, при котором операция выполняется через небольшие проколы передней брюшной стенки.',
+        details: [
+          {
+            title: 'Кисты яичников',
+            text: 'Удаление кисты с максимально бережным отношением к здоровой ткани яичника.',
+          },
+          {
+            title: 'Миома матки',
+            text: 'Лапароскопическое удаление миоматозных узлов с сохранением матки, если это возможно и соответствует клинической ситуации.',
+          },
+          {
+            title: 'Эндометриоз малого таза',
+            text: 'Удаление очагов эндометриоза и лечение спаечного процесса для уменьшения боли и восстановления анатомии органов малого таза.',
+          },
+          {
+            title: 'Спаечный процесс в малом тазу',
+            text: 'Лапароскопическое рассечение спаек для восстановления нормального расположения и подвижности органов.',
+          },
+          {
+            title: 'Внематочная беременность',
+            text: 'Лапароскопическое хирургическое лечение внематочной беременности с выбором тактики с учётом состояния пациентки и расположения беременности.',
+          },
+          {
+            title: 'Проверка проходимости маточных труб',
+            text: 'Оценка проходимости маточных труб во время лапароскопии с помощью специального диагностического раствора.',
+          },
+          {
+            title: 'Диагностическая лапароскопия',
+            text: 'Малоинвазивное исследование органов малого таза для уточнения причины боли, бесплодия или других гинекологических симптомов и постановки точного диагноза.',
+          },
+        ],
+        action: 'Записаться на операцию',
+        icon: '/assets/icon-consultation.webp',
+      },
     ],
-    action: 'Обсудить операцию',
-    icon: '/assets/icon-reconstruction.webp',
   },
   {
-    label: 'Эстетическая хирургия',
-    title: 'Хирургическая эстетика вульвы',
-    text: 'Коррекция интимной зоны с учётом анатомических особенностей и пожеланий пациентки.',
-    details: [
-      ['Лабиопластика', 'Коррекция формы и размера малых половых губ, включая форму «крылья бабочки».'],
-      ['Клиторальная пластика', 'Коррекция области капюшона клитора по показаниям и эстетическим запросам.'],
-      ['Пластика больших половых губ', 'Коррекция формы и объёма больших половых губ.'],
+    id: 'non-surgical-aesthetics',
+    title: 'Неоперационная эстетическая гинекология',
+    services: [
+      {
+        title: 'Процедуры интимной зоны',
+        detailsTitle: 'Процедуры:',
+        details: [
+          {
+            title: 'Точка G',
+            text: 'Процедура с применением препаратов на основе гиалуроновой кислоты для коррекции данной зоны.',
+          },
+          {
+            title: 'Придание объёма большим половым губам',
+            text: 'Коррекция объёма и формы с использованием препаратов на основе гиалуроновой кислоты.',
+          },
+          {
+            title: 'Восполнение объёмов промежности',
+            text: 'Коррекция дефицита мягких тканей препаратами на основе гиалуроновой кислоты.',
+          },
+          {
+            title: 'Сужение влагалища препаратами на основе гиалуроновой кислоты',
+            text: 'Формулировку и название процедуры необходимо дополнительно уточнить у врача, чтобы на сайте использовать корректное медицинское описание.',
+            status: 'Формулировка уточняется',
+          },
+          {
+            title: 'Биоревитализация интимной зоны',
+            text: 'Процедура для улучшения качества и состояния тканей интимной зоны.',
+          },
+          {
+            title: 'Коллагенотерапия интимной зоны',
+            text: 'Процедуры, направленные на улучшение качества тканей и стимуляцию процессов коллагенообразования.',
+          },
+        ],
+        action: 'Записаться на процедуру',
+        icon: '/assets/icon-aesthetics.webp',
+      },
     ],
-    action: 'Обсудить операцию',
-    icon: '/assets/icon-aesthetics.webp',
-  },
-  {
-    label: 'Комплексная коррекция',
-    title: 'Комплекс «Жена миллионера»',
-    text: 'Одна индивидуальная программа для одновременного решения функциональных и эстетических задач.',
-    details: [
-      ['Возможный состав', 'Реконструкция тазового дна, коррекция цистоцеле и ректоцеле, пластика малых и больших половых губ.'],
-      ['Только по показаниям', 'Объём вмешательства определяется персонально после консультации и обследования.'],
-    ],
-    action: 'Записаться на консультацию',
-    icon: '/assets/icon-reconstruction.webp',
-  },
-  {
-    label: 'Малоинвазивная хирургия',
-    title: 'Лапароскопические операции',
-    text: 'Операции через небольшие проколы передней брюшной стенки с бережным отношением к тканям.',
-    details: [
-      ['Кисты яичников', 'Удаление кисты с максимальным сохранением здоровой ткани яичника.'],
-      ['Миома матки', 'Удаление миоматозных узлов с сохранением матки, когда это возможно.'],
-      ['Эндометриоз и спаечный процесс', 'Удаление очагов, рассечение спаек и восстановление анатомии органов малого таза.'],
-      ['Диагностика', 'Проверка проходимости маточных труб и диагностическая лапароскопия.'],
-      ['Внематочная беременность', 'Выбор хирургической тактики с учётом состояния пациентки и клинической ситуации.'],
-    ],
-    action: 'Обсудить операцию',
-    icon: '/assets/icon-consultation.webp',
-  },
-  {
-    label: 'Неоперационные методы',
-    title: 'Эстетическая гинекология',
-    text: 'Современные процедуры для коррекции объёма и улучшения качества тканей интимной зоны.',
-    details: [
-      ['Контурная коррекция', 'Коррекция зоны точки G, объёма больших половых губ и мягких тканей промежности препаратами на основе гиалуроновой кислоты.'],
-      ['Качество тканей', 'Биоревитализация и коллагенотерапия интимной зоны.'],
-      ['Персональный выбор', 'Подходящая процедура и препарат определяются только после консультации врача.'],
-    ],
-    action: 'Записаться на процедуру',
-    icon: '/assets/icon-aesthetics.webp',
   },
 ]
 
@@ -188,42 +258,46 @@ function Header() {
 }
 
 function ServiceCard({ service, index }) {
-  const [open, setOpen] = useState(index === 0)
-
+  const hasCompactDetails = service.details?.every((detail) => typeof detail === 'string')
   return (
-    <motion.article className={`service-card ${open ? 'is-open' : ''}`} layout>
-      <button className="service-summary" onClick={() => setOpen((value) => !value)} aria-expanded={open}>
-        <span className="service-index">{String(index + 1).padStart(2, '0')}</span>
-        <span className="service-icon-wrap"><img src={service.icon} alt="" /></span>
-        <span className="service-heading">
-          <span className="eyebrow">{service.label}</span>
-          <span className="service-title">{service.title}</span>
-          <span className="service-text">{service.text}</span>
-        </span>
-        <span className="service-toggle"><ChevronDown /></span>
-      </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            className="service-body"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className="service-details">
-              {service.details.map(([title, text]) => (
-                <div className="detail-item" key={title}>
-                  <span className="detail-dot" />
-                  <div><h4>{title}</h4><p>{text}</p></div>
-                </div>
-              ))}
-            </div>
-            <a className="text-link" href="#booking">{service.action}<ArrowRight /></a>
-          </motion.div>
+    <Reveal className="service-card" delay={Math.min(index * 0.05, 0.15)}>
+      <article>
+        <div className="service-card-header">
+          <div className="service-icon-wrap"><img src={service.icon} alt="" /></div>
+          <div className="service-card-title">
+            <h3>{service.title}</h3>
+            {service.text && <p>{service.text}</p>}
+          </div>
+        </div>
+
+        {service.details?.length > 0 && (
+          <div className="service-card-details">
+            {service.detailsTitle && <p className="service-details-title">{service.detailsTitle}</p>}
+            <ul className={`service-procedure-list ${hasCompactDetails ? 'is-compact' : ''}`}>
+              {service.details.map((detail) => {
+                const title = typeof detail === 'string' ? detail : detail.title
+                return (
+                  <li key={title}>
+                    <span className="detail-dot" />
+                    {typeof detail === 'string' ? (
+                      <p>{detail}</p>
+                    ) : (
+                      <div>
+                        <h4>{detail.title}</h4>
+                        {detail.status && <span className="service-status">{detail.status}</span>}
+                        <p>{detail.text}</p>
+                      </div>
+                    )}
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
         )}
-      </AnimatePresence>
-    </motion.article>
+
+        <a className="button service-action" href="#booking">{service.action}<ArrowRight /></a>
+      </article>
+    </Reveal>
   )
 }
 
@@ -378,14 +452,23 @@ export default function App() {
           </motion.div>
         </section>
 
-        <section className="services section-shell" id="services">
+        <section className="services section-shell" id="services" aria-labelledby="services-title">
           <Reveal className="section-heading">
-            <p className="eyebrow">Направления работы</p>
-            <h2>От первого разговора<br />до восстановления</h2>
-            <p>Нажмите на направление, чтобы узнать подробнее.</p>
+            <h2 id="services-title">Услуги</h2>
+            <p>Консультация, хирургическое лечение и неоперационные процедуры — каждое направление начинается с индивидуальной оценки.</p>
           </Reveal>
-          <div className="services-list">
-            {services.map((service, index) => <ServiceCard service={service} index={index} key={service.title} />)}
+          <div className="service-groups">
+            {serviceGroups.map((group) => (
+              <section className="service-group" aria-labelledby={`service-group-${group.id}`} key={group.id}>
+                <div className="service-group-label">
+                  <span>Направление</span>
+                  <h3 id={`service-group-${group.id}`}>{group.title}</h3>
+                </div>
+                <div className="service-cards">
+                  {group.services.map((service, index) => <ServiceCard service={service} index={index} key={service.title} />)}
+                </div>
+              </section>
+            ))}
           </div>
         </section>
 
