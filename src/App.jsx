@@ -13,6 +13,7 @@ import {
   ShieldCheck,
   X,
 } from 'lucide-react'
+import { buildWhatsAppBookingUrl } from './whatsapp.js'
 
 const CONTACTS = {
   whatsapp: '#booking',
@@ -295,7 +296,14 @@ function ServiceCard({ service, index }) {
           </div>
         )}
 
-        <a className="button service-action" href="#booking">{service.action}<ArrowRight /></a>
+        <a
+          className="button service-action"
+          href={buildWhatsAppBookingUrl(service.title)}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {service.action}<ArrowRight />
+        </a>
       </article>
     </Reveal>
   )
@@ -422,8 +430,7 @@ export default function App() {
               </div>
 
               <div className="hero-mobile-portrait">
-                <img src="/assets/doctor-portrait-placeholder.png" alt="Временный сгенерированный портрет врача" />
-                <p>Временное изображение — заменить оригиналом</p>
+                <img src="/assets/ginecolog-naida-hero.png" alt="Врач-гинеколог Наида Рамазанова" />
               </div>
 
               <p className="hero-experience">
@@ -448,7 +455,7 @@ export default function App() {
             </div>
           </motion.div>
           <motion.div className="hero-visual" initial={{ opacity: 0, scale: 1.04 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}>
-            <img src="/assets/doctor-portrait-placeholder.png" alt="Временный сгенерированный портрет врача" fetchPriority="high" />
+            <img src="/assets/ginecolog-naida-hero-left-140px.png" alt="Врач-гинеколог Наида Рамазанова" fetchPriority="high" />
           </motion.div>
         </section>
 
