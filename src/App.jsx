@@ -430,7 +430,7 @@ export default function App() {
               </div>
 
               <div className="hero-mobile-portrait">
-                <img src="/assets/ginecolog-naida-hero.png" alt="Врач-гинеколог Наида Рамазанова" />
+                <img src="/assets/ginecolog-naida-hero-teal.png" alt="Врач-гинеколог Наида Рамазанова" />
               </div>
 
               <p className="hero-experience">
@@ -455,7 +455,7 @@ export default function App() {
             </div>
           </motion.div>
           <motion.div className="hero-visual" initial={{ opacity: 0, scale: 1.04 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}>
-            <img src="/assets/ginecolog-naida-hero-left-140px.png" alt="Врач-гинеколог Наида Рамазанова" fetchPriority="high" />
+            <img src="/assets/ginecolog-naida-hero-left-140px-teal.png" alt="Врач-гинеколог Наида Рамазанова" fetchPriority="high" />
           </motion.div>
         </section>
 
