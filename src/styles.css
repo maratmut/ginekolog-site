@@ -496,18 +496,6 @@ h2 {
   background: rgba(255, 253, 251, .72);
 }
 
-.service-card>article::after {
-  content: '';
-  position: absolute;
-  top: -46px;
-  right: -46px;
-  width: 150px;
-  aspect-ratio: 1;
-  border: 1px solid rgba(216, 135, 164, .22);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
 .service-card-header {
   position: relative;
   z-index: 1;
@@ -1514,10 +1502,6 @@ h2 {
 
   .service-card>article {
     padding: 24px 20px;
-  }
-
-  .service-card>article::after {
-    width: 120px;
   }
 
   .service-card-header {
