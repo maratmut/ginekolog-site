@@ -15,6 +15,8 @@ import {
 } from 'lucide-react'
 import { buildWhatsAppBookingUrl } from './whatsapp.js'
 
+const TELEGRAM_CHANNEL_URL = 'https://t.me/ramazanovanai'
+
 const CONTACTS = {
   whatsapp: '#booking',
   telegram: '#booking',
@@ -496,14 +498,22 @@ export default function App() {
                   <div className="result-meta"><span>{title}</span><span>Срок и описание — после согласования</span></div>
                 </Reveal>
               ))}
-              <Reveal className="telegram-card" delay={0.2}>
-                <Send />
-                <p className="eyebrow light">Закрытый Telegram-канал</p>
-                <h3>Больше результатов — в деликатном формате</h3>
-                <p>Запросите доступ, чтобы посмотреть примеры работ и подробные разборы.</p>
-                <a className="button button-light" href={CONTACTS.telegram}>Запросить доступ<ArrowRight /></a>
-              </Reveal>
             </div>
+            <Reveal className="telegram-card" delay={0.2}>
+              <div className="telegram-card-intro">
+                <span className="telegram-icon" aria-hidden="true"><Send /></span>
+                <p className="eyebrow light">Закрытый Telegram-канал</p>
+              </div>
+              <h3>Больше результатов — в закрытом Telegram-канале.</h3>
+              <a
+                className="button button-light"
+                href={TELEGRAM_CHANNEL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Перейти в канал<ArrowRight />
+              </a>
+            </Reveal>
           </div>
         </section>
 
