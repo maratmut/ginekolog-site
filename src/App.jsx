@@ -5,7 +5,6 @@ import {
   ArrowRight,
   Camera,
   ChevronDown,
-  CircleCheck,
   Menu,
   MessageCircle,
   Play,
@@ -16,11 +15,12 @@ import {
 import { buildWhatsAppBookingUrl } from './whatsapp.js'
 
 const TELEGRAM_CHANNEL_URL = 'https://t.me/ramazanovanai'
+const CONSULTATION_URL = buildWhatsAppBookingUrl('Консультация гинеколога-хирурга')
 
 const CONTACTS = {
-  whatsapp: '#booking',
-  telegram: '#booking',
-  instagram: '#booking',
+  whatsapp: CONSULTATION_URL,
+  telegram: TELEGRAM_CHANNEL_URL,
+  instagram: 'https://www.instagram.com/dr.ramazanovan/',
 }
 
 const serviceGroups = [
@@ -367,45 +367,6 @@ function VideoReview({ review, index }) {
   )
 }
 
-function BookingForm() {
-  const [sent, setSent] = useState(false)
-
-  const submit = (event) => {
-    event.preventDefault()
-    setSent(true)
-  }
-
-  if (sent) {
-    return (
-      <motion.div className="success-card" initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} role="status">
-        <CircleCheck />
-        <h3>Заявка подготовлена</h3>
-        <p>Форма работает в деморежиме. Подключите CRM или почту, чтобы заявки приходили администратору.</p>
-        <button className="text-link light" onClick={() => setSent(false)}>Отправить ещё одну</button>
-      </motion.div>
-    )
-  }
-
-  return (
-    <form className="booking-form" onSubmit={submit}>
-      <label><span>Ваше имя</span><input name="name" autoComplete="name" placeholder="Как к вам обращаться" required /></label>
-      <label><span>Телефон</span><input name="phone" type="tel" autoComplete="tel" placeholder="+7 (___) ___-__-__" required /></label>
-      <label><span>Что хотите обсудить</span>
-        <select name="topic" defaultValue="">
-          <option value="" disabled>Выберите направление</option>
-          <option>Консультация</option>
-          <option>Реконструктивная хирургия</option>
-          <option>Эстетическая хирургия</option>
-          <option>Лапароскопия</option>
-          <option>Неоперационная гинекология</option>
-        </select>
-      </label>
-      <label className="consent"><input type="checkbox" required /><span>Я согласна на обработку персональных данных</span></label>
-      <button className="button button-light" type="submit">Записаться на консультацию<ArrowRight /></button>
-    </form>
-  )
-}
-
 export default function App() {
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, { stiffness: 110, damping: 28, restDelta: 0.001 })
@@ -535,20 +496,25 @@ export default function App() {
           </Reveal>
         </section>
 
-        <section className="booking" id="booking">
+        <section className="booking" id="booking" aria-labelledby="booking-title">
           <div className="booking-orbit orbit-one" /><div className="booking-orbit orbit-two" />
           <div className="section-shell booking-grid">
-            <Reveal className="booking-copy">
+            <Reveal className="booking-heading">
               <p className="eyebrow light">Начните с консультации</p>
-              <h2>Обсудите то, что вас беспокоит, <em>без неловкости</em></h2>
-              <p>Если вас беспокоят изменения в интимной зоне, симптомы опущения органов малого таза, недержание мочи или вы хотите обсудить эстетическую коррекцию — врач оценит состояние и поможет определить оптимальную тактику.</p>
+              <h2 id="booking-title">Запишитесь на консультацию к гинекологу-хирургу</h2>
+            </Reveal>
+            <Reveal className="booking-actions" delay={0.12}>
+              <div className="booking-text">
+                <p>Если вас беспокоят изменения в интимной зоне, симптомы опущения органов малого таза, недержание мочи или вы хотите обсудить эстетическую коррекцию — начните с консультации.</p>
+                <p>Врач оценит состояние и поможет определить оптимальную тактику лечения.</p>
+              </div>
+              <a className="button button-light booking-cta" href={CONSULTATION_URL} target="_blank" rel="noopener noreferrer">Записаться<ArrowRight /></a>
               <div className="social-links" aria-label="Связаться в социальных сетях">
-                <a href={CONTACTS.whatsapp}><MessageCircle />WhatsApp</a>
-                <a href={CONTACTS.telegram}><Send />Telegram</a>
-                <a href={CONTACTS.instagram}><Camera />Instagram</a>
+                <a href={CONTACTS.whatsapp} target="_blank" rel="noopener noreferrer"><MessageCircle />WhatsApp</a>
+                <a href={CONTACTS.telegram} target="_blank" rel="noopener noreferrer"><Send />Telegram</a>
+                <a href={CONTACTS.instagram} target="_blank" rel="noopener noreferrer"><Camera />Instagram</a>
               </div>
             </Reveal>
-            <Reveal delay={0.12}><BookingForm /></Reveal>
           </div>
         </section>
       </main>
