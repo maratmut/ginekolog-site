@@ -1066,13 +1066,44 @@ h2 {
   justify-self: end;
 }
 
+.booking-text {
+  position: relative;
+  padding-left: 48px;
+}
+
+.booking-text::before {
+  content: '“';
+  position: absolute;
+  top: -14px;
+  left: 0;
+  color: rgba(191, 230, 232, .32);
+  font-family: var(--display);
+  font-size: 72px;
+  line-height: 1;
+  pointer-events: none;
+}
+
 .booking-text p {
   margin: 0;
-  color: rgba(255, 255, 255, .7);
+  color: rgba(255, 255, 255, .78);
+  font-size: 16px;
+  line-height: 1.65;
 }
 
 .booking-text p+p {
-  margin-top: 18px;
+  position: relative;
+  margin-top: 26px;
+  padding-top: 20px;
+}
+
+.booking-text p+p::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48px;
+  height: 1px;
+  background: rgba(191, 230, 232, .5);
 }
 
 .booking-cta {
@@ -1649,6 +1680,15 @@ h2 {
 
   .booking-cta {
     width: 100%;
+  }
+
+  .booking-text {
+    padding-left: 38px;
+  }
+
+  .booking-text::before {
+    top: -10px;
+    font-size: 60px;
   }
 
   .footer-inner {
