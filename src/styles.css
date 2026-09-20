@@ -832,13 +832,10 @@ h2 {
   justify-content: space-between;
   gap: 20px;
   padding: 16px 2px;
-  color: rgba(255, 255, 255, .75);
   font-size: 11px;
 }
 
-.result-meta span:last-child {
-  color: rgba(255, 255, 255, .4);
-}
+
 
 .telegram-card {
   position: relative;

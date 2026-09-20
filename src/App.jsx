@@ -154,8 +154,7 @@ const serviceGroups = [
           },
           {
             title: 'Сужение влагалища препаратами на основе гиалуроновой кислоты',
-            text: 'Формулировку и название процедуры необходимо дополнительно уточнить у врача, чтобы на сайте использовать корректное медицинское описание.',
-            status: 'Формулировка уточняется',
+            text: '',
           },
           {
             title: 'Биоревитализация интимной зоны',
@@ -198,12 +197,12 @@ const videoReviews = [
 ]
 
 const resultWorks = [
-  { id: '01', image: '/assets/works/case-01.jpg', preview: '/assets/works/case-01-preview.jpg', aspectRatio: '4 / 5' },
-  { id: '02', image: '/assets/works/case-02.jpg', preview: '/assets/works/case-02-preview.jpg', aspectRatio: '4 / 5' },
-  { id: '03', image: '/assets/works/case-03.jpg', preview: '/assets/works/case-03-preview.jpg', aspectRatio: '4 / 5' },
-  { id: '04', image: '/assets/works/case-04.jpg', preview: '/assets/works/case-04-preview.jpg', aspectRatio: '4 / 5' },
-  { id: '05', image: '/assets/works/case-05.jpg', preview: '/assets/works/case-05-preview.jpg', aspectRatio: '4 / 5' },
-  { id: '06', image: '/assets/works/case-06.jpg', preview: '/assets/works/case-06-preview.jpg', aspectRatio: '4 / 5' },
+  { id: '01', image: '/assets/works/case-01.jpg', preview: '/assets/works/case-01-preview.jpg', aspectRatio: '4 / 5', title: 'Комплекс операций - Жена Миллионера.' },
+  { id: '02', image: '/assets/works/case-02.jpg', preview: '/assets/works/case-02-preview.jpg', aspectRatio: '4 / 5', title: 'Реконструкция тазового дна субфасциальной техникой.' },
+  { id: '03', image: '/assets/works/case-03.jpg', preview: '/assets/works/case-03-preview.jpg', aspectRatio: '4 / 5', title: 'Исправление после неудачной работы другого врача.' },
+  { id: '04', image: '/assets/works/case-04.jpg', preview: '/assets/works/case-04-preview.jpg', aspectRatio: '4 / 5', title: 'Гименопластика, восстановление целостности девственной плевы.' },
+  { id: '05', image: '/assets/works/case-05.jpg', preview: '/assets/works/case-05-preview.jpg', aspectRatio: '4 / 5', title: 'Эстетика вульвы с реконструкцией порванной половой губы в следствии травматичных родов.' },
+  { id: '06', image: '/assets/works/case-06.jpg', preview: '/assets/works/case-06-preview.jpg', aspectRatio: '4 / 5', title: 'Эстетика вульвы.Пластика малых половых губ. Подтяжка клитора' },
   {
     id: '07',
     image: '/assets/works/case-07-after.jpg',
