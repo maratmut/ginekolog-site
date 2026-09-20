@@ -124,6 +124,12 @@ const serviceGroups = [
         action: 'Записаться на операцию',
         icon: '/assets/icon-consultation.webp',
       },
+      {
+        title: 'Внутриматочные операции',
+        details: ['Гистерорезектоскопия'],
+        action: 'Записаться на операцию',
+        icon: '/assets/icon-reconstruction.webp',
+      },
     ],
   },
   {
