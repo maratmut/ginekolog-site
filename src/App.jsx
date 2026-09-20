@@ -173,13 +173,6 @@ const serviceGroups = [
   },
 ]
 
-const faq = [
-  ['С чего начать, если я не знаю, какая процедура мне нужна?', 'Начните с консультации. Врач уточнит жалобы, проведёт осмотр и объяснит, какие методы подходят именно в вашей ситуации.'],
-  ['Можно ли совместить функциональную и эстетическую коррекцию?', 'Да, в ряде случаев задачи можно объединить в одну персональную программу. Возможность и объём вмешательства определяются после обследования.'],
-  ['Как обеспечивается конфиденциальность?', 'Персональные данные и медицинские материалы не публикуются без отдельного согласия пациентки. Результаты показываются деликатно и обезличенно.'],
-  ['Подойдёт ли мне лапароскопическая операция?', 'Это зависит от диагноза, истории заболевания и результатов обследования. На консультации врач оценит показания и обсудит возможные альтернативы.'],
-]
-
 const videoReviews = [
   {
     title: 'История пациентки',
@@ -201,6 +194,31 @@ const videoReviews = [
     duration: '00:21',
     src: '/videos/review-3.mp4',
     poster: '/assets/reviews/review-3.webp',
+  },
+]
+
+const resultWorks = [
+  { id: '01', image: '/assets/works/case-01.jpg', preview: '/assets/works/case-01-preview.jpg', aspectRatio: '4 / 5' },
+  { id: '02', image: '/assets/works/case-02.jpg', preview: '/assets/works/case-02-preview.jpg', aspectRatio: '4 / 5' },
+  { id: '03', image: '/assets/works/case-03.jpg', preview: '/assets/works/case-03-preview.jpg', aspectRatio: '4 / 5' },
+  { id: '04', image: '/assets/works/case-04.jpg', preview: '/assets/works/case-04-preview.jpg', aspectRatio: '4 / 5' },
+  { id: '05', image: '/assets/works/case-05.jpg', preview: '/assets/works/case-05-preview.jpg', aspectRatio: '4 / 5' },
+  { id: '06', image: '/assets/works/case-06.jpg', preview: '/assets/works/case-06-preview.jpg', aspectRatio: '4 / 5' },
+  {
+    id: '07',
+    image: '/assets/works/case-07-after.jpg',
+    preview: '/assets/works/case-07-after-preview.jpg',
+    aspectRatio: '4 / 5',
+    title: 'Липофилинг больших половых губ, восполнение объема собственным жиром',
+    showLabels: false,
+  },
+  {
+    id: '08',
+    image: '/assets/works/case-07-before.jpg',
+    preview: '/assets/works/case-07-before-preview.jpg',
+    aspectRatio: '4 / 5',
+    title: 'Установка слинга ( сетчатого импланта ) при недержании мочи + реконструкция тазового дна субфасциальной техникой',
+    showLabels: false,
   },
 ]
 
@@ -229,8 +247,7 @@ function Reveal({ children, className = '', delay = 0 }) {
 function Header() {
   const [open, setOpen] = useState(false)
   const items = [
-    ['О враче', '#about'],
-    ['Направления', '#services'],
+    ['Услуги', '#services'],
     ['Результаты', '#results'],
     ['Отзывы', '#reviews'],
   ]
@@ -313,6 +330,48 @@ function ServiceCard({ service, index }) {
           {service.action}<ArrowRight />
         </a>
       </article>
+    </Reveal>
+  )
+}
+
+function ResultCard({ work, index }) {
+  const [revealed, setRevealed] = useState(false)
+  const actionLabel = `${revealed ? 'Скрыть' : 'Показать'} медицинские фотографии — клинический случай ${work.id}`
+
+  return (
+    <Reveal className={`result-card ${work.showLabels === false ? 'is-single' : ''} ${revealed ? 'is-revealed' : ''}`} delay={Math.min(index * 0.06, 0.24)}>
+      <button
+        className="result-visual"
+        type="button"
+        style={{ '--result-aspect': work.aspectRatio }}
+        onClick={() => setRevealed((value) => !value)}
+        aria-label={actionLabel}
+        aria-pressed={revealed}
+      >
+        <span className="result-media">
+          <img
+            src={revealed ? work.image : work.preview}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            draggable="false"
+          />
+        </span>
+        <span className="age-mark" aria-label="Материалы для лиц старше 18 лет">18+</span>
+        {work.showLabels !== false && (
+          <>
+            <span className="before-label">До</span>
+            <span className="after-label">После</span>
+          </>
+        )}
+        <span className="privacy-badge">
+          <ShieldCheck />
+          <span>{revealed ? 'Скрыть фотографию' : <>Медицинские материалы<br />Нажмите, чтобы посмотреть</>}</span>
+        </span>
+      </button>
+      <div className="result-meta">
+        {work.title ? <span>{work.title}</span> : <><span>Клинический случай {work.id}</span><span>До / после</span></>}
+      </div>
     </Reveal>
   )
 }
@@ -451,20 +510,11 @@ export default function App() {
         <section className="results" id="results">
           <div className="section-shell">
             <Reveal className="results-heading">
-              <div><p className="eyebrow light">Результаты работы</p><h2>Изменения, о которых<br />говорят деликатно</h2></div>
+              <div><p className="eyebrow light">Результаты работы</p><h2>ДО / ПОСЛЕ</h2></div>
               <p>Фотографии «до / после» публикуются только с согласия пациенток и с сохранением медицинской конфиденциальности.</p>
             </Reveal>
             <div className="results-grid">
-              {['Реконструктивная хирургия', 'Эстетическая коррекция'].map((title, index) => (
-                <Reveal className="result-card" delay={index * 0.1} key={title}>
-                  <div className="result-visual">
-                    <div className="privacy-blur" />
-                    <span className="before-label">До</span><span className="after-label">После</span>
-                    <div className="privacy-badge"><ShieldCheck /><span>Материалы доступны<br />в закрытом канале</span></div>
-                  </div>
-                  <div className="result-meta"><span>{title}</span><span>Срок и описание — после согласования</span></div>
-                </Reveal>
-              ))}
+              {resultWorks.map((work, index) => <ResultCard work={work} index={index} key={work.id} />)}
             </div>
             <Reveal className="telegram-card" delay={0.2}>
               <div className="telegram-card-intro">
@@ -486,7 +536,7 @@ export default function App() {
 
         <section className="reviews section-shell" id="reviews">
           <Reveal className="section-heading split-heading">
-            <div><p className="eyebrow">Отзывы пациенток</p><h2>Важное —<br />от первого лица</h2></div>
+            <div><h2>Отзывы пациенток</h2></div>
             <p>Реальные истории пациенток о самочувствии, лечении и возвращении к привычной жизни.</p>
           </Reveal>
           <div className="video-reviews-grid">
@@ -495,12 +545,7 @@ export default function App() {
           <p className="reviews-privacy"><ShieldCheck /> Лица пациенток скрыты. Материалы размещены с сохранением медицинской конфиденциальности.</p>
         </section>
 
-        <section className="faq section-shell">
-          <Reveal className="faq-layout">
-            <div className="faq-title"><p className="eyebrow">Частые вопросы</p><h2>Спокойно о важном</h2></div>
-            <div className="faq-list">{faq.map(([question, answer]) => <FAQItem question={question} answer={answer} key={question} />)}</div>
-          </Reveal>
-        </section>
+        
 
         <section className="booking" id="booking" aria-labelledby="booking-title">
           <div className="booking-orbit orbit-one" /><div className="booking-orbit orbit-two" />

@@ -23,6 +23,9 @@ pnpm-debug.log*
 .env.*.local
 !.env.example
 
+# Private source media (never publish or commit)
+.private-assets/
+
 # Tool caches and coverage
 .eslintcache
 .vite/
